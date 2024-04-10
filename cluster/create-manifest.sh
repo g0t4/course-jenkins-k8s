@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 minikube --driver docker \
     --nodes 1 \
     --cpus=no-limit --memory=no-limit \
@@ -5,3 +7,6 @@ minikube --driver docker \
     --container-runtime=docker \
     --profile=manifest \
     start
+
+# switch to cluster profile by default w/ minikube commands
+minikube profile manifest
