@@ -1,7 +1,7 @@
 
 # pre-requisites
 #   winget install Docker.DockerDesktop  Kubernetes.minikube  Helm.Helm
-#   winget install jqlang.jq  MikeFarah.yq  sharkdp.bat 
+#   winget install jqlang.jq  MikeFarah.yq  sharkdp.bat  # optional
 #
 
 minikube --driver docker `
