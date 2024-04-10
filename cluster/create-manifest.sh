@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# pre-requisites
+#   brew install docker minikube helm
+#   brew install jq yq bat watch # optional
+#
+
 minikube --driver docker \
     --nodes 1 \
     --cpus=no-limit --memory=no-limit \
