@@ -14,3 +14,5 @@ minikube --driver docker `
 
 # switch to cluster profile by default w/ minikube commands
 minikube profile manifest
+
+# kubectl config set-context --current --namespace jenkins
