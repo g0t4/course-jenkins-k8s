@@ -56,24 +56,28 @@ podTemplate(yaml: '''
             }
         }
         stage('other') {
-            parallel 'node': {
-                container('node') {
-                    sh 'node --version'
+            parallel(
+                'node': {
+                    container('node') {
+                        sh 'node --version'
+                    }
+                },
+                'python': {
+                    container('python') {
+                        sh 'python --version'
+                        sh 'pip --version'
+                    }
+                },
+                'dotnet': {
+                    container('dotnet') {
+                        sh 'dotnet --version'
+                        sh 'dotnet --list-runtimes'
+                        sh 'pwd'
+                        sh 'ls'
+                        sh 'cat buildinfo.txt'
+                    }
                 }
-            }, 'python': {
-                container('python') {
-                    sh 'python --version'
-                    sh 'pip --version'
-                }
-            }, 'dotnet': {
-                container('dotnet') {
-                    sh 'dotnet --version'
-                    sh 'dotnet --list-runtimes'
-                    sh 'pwd'
-                    sh 'ls'
-                    sh 'cat buildinfo.txt'
-                }
-            }
+            )
         }
     }
 }
