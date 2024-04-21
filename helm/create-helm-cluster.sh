@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 
-# pre-requisites
-#   brew install docker minikube helm
-#   brew install jq yq bat watch # optional
-#
+# https://helm.sh/docs/intro/install
+# brew install helm
 
+_name="helm"
 minikube --driver docker \
     --nodes 1 \
     --cpus=no-limit --memory=no-limit \
     --kubernetes-version=v1.30.0-rc.2 \
     --container-runtime=docker \
-    --profile=manifest \
+    --profile=${_name} \
     start
 
 # switch to cluster profile by default w/ minikube commands
-minikube profile manifest
+minikube profile ${_name}
 
 # kubectl config set-context --current --namespace jenkins
