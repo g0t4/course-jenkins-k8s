@@ -1,18 +1,26 @@
-podTemplate(name: 'build') {
+/* groovylint-disable DuplicateStringLiteral */
+podTemplate(
+  name: 'build',
+  containers: [ containerTemplate(name: 'jdk', image: 'eclipse-temurin', ttyEnabled: true, command: 'cat') ]
+) {
   node(POD_LABEL) {
-    stage('build') {
-      sh 'echo build'
+    stage('build-it') {
+      echo 'building...'
       sh 'ls -al'
       sh 'echo foo > bar'
+      container('jdk') {
+        sh 'java -version'
+      }
 
       podTemplate(name: 'nested') {
         node(POD_LABEL) {
-          sh 'echo nested'
+          echo 'nesting...'
           sh 'ls -al'
           sleep 3
         }
       }
 
+      sh 'ls -al'
       sleep 3
     }
   }
@@ -23,7 +31,8 @@ parallel(
   testsA: {
     podTemplate(name: 'tests-A') {
       node(POD_LABEL) {
-        sh 'echo tests A'
+        echo 'testing A...'
+        sh 'ls -al'
         sleep 5
       }
     }
@@ -32,7 +41,7 @@ parallel(
   testsB: {
     podTemplate(name: 'tests-B') {
       node(POD_LABEL) {
-        sh 'echo tests B'
+        echo 'testing B...'
         sleep 10
       }
     }
@@ -44,8 +53,8 @@ parallel(
 
 podTemplate(name: 'capture') {
   node(POD_LABEL) {
-    stage('capture') {
-      sh 'echo capture'
+    stage('capture-it') {
+      echo 'capturing...'
       sleep 5
     }
   }
