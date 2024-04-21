@@ -31,7 +31,9 @@ podTemplate(yaml: '''
         ]
     ) {
     node(POD_LABEL) {
-        checkout scm // see repo files foo/bar/Jenkinsfile => shared workspace
+
+        git "https://github.com/g0t4/course-jenkins-k8s" // checkout scm // see repo files foo/bar/Jenkinsfile => shared workspace
+
         stage('build-info') {
             container('git') {
                 sh 'git --version'
