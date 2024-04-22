@@ -1,0 +1,11 @@
+controller:
+  JCasC:
+    configScripts:
+      dark-theme: |
+        appearance:
+          themeManager:
+            disableUserThemes: true
+            theme: "dark" # use 'dark' for forcing the dark theme regardless of OS settings
+
+# cool to upgrade => refresh jenkins UI!
+# jenkinsUrl must be set correctly else stylesheet won't load and the dark theme will appear as if it doesn't work

@@ -1,0 +1,4 @@
+controller:
+  jenkinsUrl: http://localhost:8080
+  jenkinsAdminEmail: example@mail.com
+  # don't set these via JCasC, set as helm chart values
