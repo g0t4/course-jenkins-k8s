@@ -1,0 +1,12 @@
+controller:
+  initScripts:
+    disablescriptsecurity: |-
+      import javaposse.jobdsl.plugin.GlobalJobDslSecurityConfiguration
+      import jenkins.model.GlobalConfiguration
+
+      // to disable Job DSL script approval, don't do this at home!
+      GlobalConfiguration.all().get(GlobalJobDslSecurityConfiguration.class).useScriptSecurity=false
+      GlobalConfiguration.all().get(GlobalJobDslSecurityConfiguration.class).save()
+
+
+# mounted at /var/jenkins_home/init.groovy.d/initdisablescriptsecurity.groovy
