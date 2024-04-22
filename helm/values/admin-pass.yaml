@@ -1,0 +1,5 @@
+controller:
+  admin:
+    password: 'admins'
+
+# ensure jenkins restarts
