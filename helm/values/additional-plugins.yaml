@@ -1,0 +1,5 @@
+controller:
+  additionalPlugins: ['pipeline-graph-view', 'job-dsl', 'junit', 'coverage', 'dark-theme']
+
+# controller.additionalPlugins is in addition to controller.installPlugins
+#   https://github.com/jenkinsci/helm-charts/blob/main/charts/jenkins/values.yaml#L395
