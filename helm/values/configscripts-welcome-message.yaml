@@ -1,0 +1,6 @@
+controller:
+  JCasC:
+    configScripts:
+      welcome-message: |
+        jenkins:
+          systemMessage: 🧪🧪🧪 jenkins1 🧪🧪🧪
