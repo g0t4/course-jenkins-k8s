@@ -6,4 +6,6 @@ helm upgrade --install -n jenkins jenkins1 jenkins/jenkins \
     --values values/jenkins-url.yaml \
     --values values/initscripts-disable-script-security.yaml \
     --values values/configscripts-versions-job.yaml \
-    --values values/configscripts-welcome-message.yaml
+    --values values/configscripts-welcome-message.yaml \
+    --dry-run --debug
+    # --dry-run + --debug returns proposed state w/o actually changing the release
