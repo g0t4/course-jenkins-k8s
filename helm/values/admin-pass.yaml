@@ -2,4 +2,4 @@ controller:
   admin:
     password: 'admins'
 
-# ensure jenkins restarts
+# ensure jenkins restarts (ensures the secret w/ admin pass is updated and the config is reloaded)
